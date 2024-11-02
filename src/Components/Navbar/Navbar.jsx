@@ -1,17 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const links = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <a>Listed Books</a>
+        <NavLink to="listedBooks">Listed Books</NavLink>
       </li>
       <li>
-        <a>Pages to Read</a>
+        <NavLink to="dashboard">Pages to Read</NavLink>
       </li>
     </>
   );
@@ -48,7 +48,8 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+      <button className="btn btn-info mr-5">Sign In</button>
+      <button className="btn btn-primary">Sign Up</button>
       </div>
     </div>
   );

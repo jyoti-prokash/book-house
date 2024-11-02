@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { addStoredList } from "../Components/Utility/Utility";
 
 const Detail = () => {
     const {bookId} = useParams();
@@ -6,6 +7,11 @@ const Detail = () => {
     const data = useLoaderData();
     const book = data.find(book => book.bookId === id)
     const {image,bookName,author,category,review,tags,totalPages,publisher,yearOfPublishing,rating} = book;
+
+
+const handleRead = (id) =>{
+    addStoredList(id)
+}
 
     return (
         <div className="md:flex justify-between gap-2 my-10">
@@ -29,7 +35,7 @@ const Detail = () => {
             <p className="text-gray-500">Year of Publishing: <span className="text-black font-bold">{yearOfPublishing}</span></p>
             <p className="text-gray-500">Ratting: <span className="text-black font-bold">{rating}</span></p>
             <div className="mr-5">
-            <button className="btn btn-outline mr-8">Read</button>
+            <button onClick={()=>handleRead(bookId)} className="btn btn-outline mr-8">Read</button>
             <button class="btn bg-[#50B1C9] text-white">Wishlist</button>
             </div>
             </div>
